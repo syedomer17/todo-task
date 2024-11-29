@@ -1,5 +1,5 @@
 import readline from "readline-sync";
-import { registerUser,Login } from "./user/index.js";
+import { registerUser, Login, Addtask,updateTask } from "./user/index.js"; 
 
 async function task() {
   console.clear();
@@ -37,9 +37,11 @@ async function task() {
       break;
     case 3:
       console.log("Add Task");
+       Addtask();
       break;
     case 4:
       console.log("Update Task");
+      updateTask();
       break;
     case 5:
       console.log("Delete Task");

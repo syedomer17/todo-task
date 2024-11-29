@@ -1,16 +1,1 @@
-{
-    "users": [
-        {
-            "username": "omer",
-            "password": 12345
-        },
-        {
-            "username": "saad",
-            "password": 12345
-        },
-        {
-            "username": "Syed Omer Ali",
-            "password": "9701889473"
-        }
-    ]
-}
+{"users":[{"username":"omer","password":12345},{"username":"saad","password":12345},{"username":"Syed Omer Ali","password":"9701889473"},{"username":"ali","password":"1234"}]}
