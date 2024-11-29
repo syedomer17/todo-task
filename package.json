@@ -1,0 +1,28 @@
+{
+  "name": "todo-task",
+  "version": "1.0.0",
+  "description": "this if for task",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/syedomer17/todo-task.git"
+  },
+  "keywords": [
+    "nodejs",
+    "es6",
+    "js"
+  ],
+  "author": "syed omer ali",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/syedomer17/todo-task/issues"
+  },
+  "homepage": "https://github.com/syedomer17/todo-task#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
