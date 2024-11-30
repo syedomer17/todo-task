@@ -105,6 +105,7 @@ async function updateTask() {
     return;
   }
 
+
   const taskToUpdate = tasks.tasks[taskIndex]; // Select the task based on user input
   console.log(`You selected task: ${taskToUpdate.taskName}`);
 
@@ -119,10 +120,45 @@ async function updateTask() {
   taskToUpdate.taskdue = newTaskDueDate || taskToUpdate.taskdue; // If no new due date, keep the old one
 
   // Step 6: Save the updated tasks back to tasks.json
-  await fs.writeFile("./tasks.json", JSON.stringify(tasks, null, 2)); // Write to file with formatted JSON
+  await fs.writeFile("./tasks.json", JSON.stringify(tasks)); // Write to file with formatted JSON
 
   console.log("Task updated successfully!");
 }
 
+async function DeleteTask() {
+  // Step 1: Read and parse the tasks.json file
+  const taskDB = await fs.readFile("./tasks.json", "utf-8");
+  const tasks = JSON.parse(taskDB);
+
+  // Step 2: Ensure that the tasks exist and it is an array
+  if (!Array.isArray(tasks.tasks)) {
+    console.log("No tasks available.");
+    return;
+  }
+
+  // Step 3: Show the tasks and ask the user for the task to delete
+  console.log("Select the task to delete:");
+  tasks.tasks.forEach((task, index) => {
+    console.log(`${index + 1}. ${task.taskName} - ${task.status}`);
+  });
+
+  // Step 4: Get the user's input and validate it
+  const taskIndex = readline.questionInt("Enter the task number to delete: ") - 1; // Adjust for 0-based index
+
+  // Validate the user's input
+  if (taskIndex < 0 || taskIndex >= tasks.tasks.length) {
+    console.log("Invalid task selection.");
+    return;
+  }
+
+  // Step 5: Remove the selected task from the array
+  tasks.tasks.splice(taskIndex, 1);
+
+  // Step 6: Save the updated tasks back to tasks.json
+  await fs.writeFile("./tasks.json", JSON.stringify(tasks)); // Pretty-print JSON
+
+  console.log("Task has been successfully deleted the task.");
+}
+
 // Export the functions
-export {registerUser,Login,Addtask,updateTask}
+export { registerUser, Login, Addtask, updateTask, DeleteTask };
