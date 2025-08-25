@@ -13,7 +13,7 @@ async function registerUser() {
 
   // Step 2: Get user credentials
   let userName = readline.question("Enter your userName: ");
-  let password = readline.question("Enter your password: ");
+  let password = readline.questionNewPassword("Enter your password: ");
   console.log(userName, password);
 
   // Step 3: Check if username already exists

@@ -1,58 +1,66 @@
 import readline from "readline-sync";
-import { registerUser, Login, Addtask,updateTask,DeleteTask } from "./user/index.js"; 
+import {
+  registerUser,
+  Login,
+  Addtask,
+  updateTask,
+  DeleteTask,
+} from "./user/index.js";
 
 async function task() {
-  console.clear();
-  console.log("-----------------");
-  console.log("----todo-task----");
-  console.log("*****************");
+  while (true) {
+    console.clear();
+    console.log("-----------------");
+    console.log("----todo-task----");
+    console.log("*****************");
 
-  const options = [
-    "Exit",
-    "Register",
-    "Login",
-    "Add Task",
-    "Update Task",
-    "Delete Task",
-    "Delete user",
-  ];
-  options.map((Element, index) => {
-    console.log(`${index}.${Element}`);
-  });
+    const options = [
+      "Exit",
+      "Register",
+      "Login",
+      "Add Task",
+      "Update Task",
+      "Delete Task",
+      "Delete user",
+    ];
+    options.map((Element, index) => {
+      console.log(`${index}.${Element}`);
+    });
 
-  const userInput = readline.questionInt("Enter your options : ");
-  console.log(userInput);
+    const userInput = readline.questionInt("Enter your options : ");
+    console.log(userInput);
 
-  switch (userInput) {
-    case 0:
-      console.log("Exit");
-      break;
-    case 1:
-      console.log("Register");
-      await registerUser();
-      break;
-    case 2:
-      console.log("Login");
-      Login();
-      break;
-    case 3:
-      console.log("Add Task");
-       Addtask();
-      break;
-    case 4:
-      console.log("Update Task");
-      updateTask();
-      break;
-    case 5:
-      console.log("Delete Task");
-      DeleteTask()
-      break;
-    case 6:
-      console.log("Delete user");
+    switch (userInput) {
+      case 0:
+        console.log("Exit");
+        break;
+      case 1:
+        console.log("Register");
+        await registerUser();
+        break;
+      case 2:
+        console.log("Login");
+        Login();
+        break;
+      case 3:
+        console.log("Add Task");
+        Addtask();
+        break;
+      case 4:
+        console.log("Update Task");
+        updateTask();
+        break;
+      case 5:
+        console.log("Delete Task");
+        DeleteTask();
+        break;
+      case 6:
+        console.log("Delete user");
 
-    default:
-      console.log("Enter valide number");
-      break;
+      default:
+        console.log("Enter valide number");
+        break;
+    }
   }
 }
 task();

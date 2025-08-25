@@ -19,6 +19,14 @@
     {
       "username": "syed omer ali",
       "password": "12345"
+    },
+    {
+      "username": "suhail",
+      "password": "12345678"
+    },
+    {
+      "username": "AMJAD",
+      "password": "1234567"
     }
   ]
 }
